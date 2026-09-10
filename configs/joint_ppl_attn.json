@@ -1,0 +1,6 @@
+[
+ {"name": "had_cd_logits",   "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "attn_logits", "gdamp": 1.0},
+ {"name": "had_cd_smax",     "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "attn_smax",   "gdamp": 1.0},
+ {"name": "had_cd_attnout",  "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "attn_out",    "gdamp": 1.0},
+ {"name": "had_cd_mod_attn", "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "module_attn", "gdamp": 1.0}
+]

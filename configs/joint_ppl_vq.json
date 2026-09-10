@@ -1,0 +1,8 @@
+[
+ {"name": "had_vq2d_gptq",   "repr": "vq2d", "coord": "hadamard", "comp": "gptq", "bits": 2, "vq_scale": "row", "cd": 0},
+ {"name": "had_vq2d_layer",  "repr": "vq2d", "coord": "hadamard", "comp": "gptq", "bits": 2, "vq_scale": "row", "cd": 6},
+ {"name": "had_vq2d_module", "repr": "vq2d", "coord": "hadamard", "comp": "gptq", "bits": 2, "vq_scale": "row", "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0},
+ {"name": "had_s2g64_gptq",   "coord": "hadamard", "comp": "gptq", "bits": 2, "group": 64, "cd": 0},
+ {"name": "had_s2g64_layer",  "coord": "hadamard", "comp": "gptq", "bits": 2, "group": 64, "cd": 6},
+ {"name": "had_s2g64_module", "coord": "hadamard", "comp": "gptq", "bits": 2, "group": 64, "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0}
+]

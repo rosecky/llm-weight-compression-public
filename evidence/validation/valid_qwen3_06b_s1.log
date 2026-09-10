@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:10,  2.38it/s]Loading weights:  46%|####5     | 142/311 [00:00<00:00, 352.88it/s]Loading weights:  71%|#######   | 220/311 [00:00<00:00, 406.14it/s]Loading weights:  92%|#########1| 285/311 [00:00<00:00, 435.42it/s]Loading weights: 100%|##########| 311/311 [00:00<00:00, 367.76it/s]
+<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py:1329: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:28.)
+  return t.to(
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 3.04236  (ppl 20.9547)  248s
+fp16 c4  mean NLL 3.43955  (ppl 31.1730)  837s
+  layer  0/27  peak 1634 MiB  opt 0s
+  layer  8/27  peak 2914 MiB  opt 0s
+  layer 16/27  peak 4194 MiB  opt 0s
+  layer 24/27  peak 5474 MiB  opt 0s
+  layer 27/27  peak 5954 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 3.52793 c4 3.95627 | KL 0.62516 | 146s
+  layer  0/27  peak 1932 MiB  opt 72s
+  layer  8/27  peak 3492 MiB  opt 1207s
+  layer 16/27  peak 5012 MiB  opt 2422s
+  layer 24/27  peak 6532 MiB  opt 3515s
+  layer 27/27  peak 7102 MiB  opt 3952s
+module bpw 3.2500 | NLL wt2 3.49414 c4 3.98428 | KL 0.62639 | 4226s

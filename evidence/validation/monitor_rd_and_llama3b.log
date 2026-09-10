@@ -1,0 +1,7 @@
+gptq   bpw 2.5000 | NLL wt2 9.04084 c4 9.52212 | KL 6.44220 | 220s
+module bpw 2.5000 | NLL wt2 9.13459 c4 10.44663 | KL 6.95923 | 4277s
+gptq   bpw 3.5000 | NLL wt2 2.83137 c4 3.31496 | KL 0.27972 | 230s
+module bpw 3.5000 | NLL wt2 2.82595 c4 3.31256 | KL 0.26985 | 4085s
+gptq   bpw 4.2500 | NLL wt2 2.63769 c4 3.10592 | KL 0.06652 | 226s
+module bpw 4.2500 | NLL wt2 2.63171 c4 3.10236 | KL 0.06312 | 3933s
+gptq   bpw 3.2500 | NLL wt2 2.36377 c4 3.13628 | KL 0.42679 | 517s

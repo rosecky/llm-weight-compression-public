@@ -1,0 +1,5 @@
+[
+ {"name": "had_gptq_b2",      "coord": "hadamard", "comp": "gptq", "bits": 2, "cd": 0},
+ {"name": "had_cd_layer_b2",  "coord": "hadamard", "comp": "gptq", "bits": 2, "cd": 6},
+ {"name": "had_cd_module_b2", "coord": "hadamard", "comp": "gptq", "bits": 2, "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0}
+]

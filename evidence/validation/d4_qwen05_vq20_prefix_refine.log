@@ -1,0 +1,5 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 6286.26it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+prefix tokens: [271]
+vq20_refine wt2 prefixed mean NLL 3.17293
+vq20_refine c4 prefixed mean NLL 3.91441

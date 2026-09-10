@@ -1,0 +1,5 @@
+[
+  {"name": "b3.random1.gptq.hadamard", "bits": 3, "order": "random", "comp": "gptq", "coord": "hadamard", "perm_seed": 1},
+  {"name": "b3.random2.gptq.hadamard", "bits": 3, "order": "random", "comp": "gptq", "coord": "hadamard", "perm_seed": 2},
+  {"name": "b3.random3.gptq.hadamard", "bits": 3, "order": "random", "comp": "gptq", "coord": "hadamard", "perm_seed": 3}
+]

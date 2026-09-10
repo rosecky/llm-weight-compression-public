@@ -1,0 +1,6 @@
+[
+ {"name": "had_gptq_b3",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 0},
+ {"name": "had_gptq_cd_b3", "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6},
+ {"name": "had_gptq_b2",    "coord": "hadamard", "comp": "gptq", "bits": 2, "cd": 0},
+ {"name": "had_gptq_cd_b2", "coord": "hadamard", "comp": "gptq", "bits": 2, "cd": 6}
+]

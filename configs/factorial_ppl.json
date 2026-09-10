@@ -1,0 +1,206 @@
+[
+ {
+  "name": "scalar.naive.native.b2g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "native",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "scalar.naive.native.b3g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "native",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "scalar.naive.native.b4g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "native",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.native.b2g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "native",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.native.b3g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "native",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.native.b4g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "native",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "scalar.naive.hadamard.b2g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "hadamard",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "scalar.naive.hadamard.b3g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "hadamard",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "scalar.naive.hadamard.b4g128",
+  "rep": "scalar",
+  "comp": "naive",
+  "coord": "hadamard",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.hadamard.b2g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.hadamard.b3g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.hadamard.b4g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "vq.naive.native.d8K256s2",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "vq.naive.native.d8K256s3",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "vq.naive.native.d8K256s4",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "vq.gptq.native.d8K256s2",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "vq.gptq.native.d8K256s3",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "vq.gptq.native.d8K256s4",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "vq.naive.hadamard.d8K256s2",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "vq.naive.hadamard.d8K256s3",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "vq.naive.hadamard.d8K256s4",
+  "rep": "vq",
+  "comp": "naive",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "vq.gptq.hadamard.d8K256s2",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "vq.gptq.hadamard.d8K256s3",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "vq.gptq.hadamard.d8K256s4",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 4
+ }
+]

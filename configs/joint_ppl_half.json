@@ -1,0 +1,4 @@
+[
+ {"name": "had_cd_mod_early", "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0, "glayers": "0-11"},
+ {"name": "had_cd_mod_late",  "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0, "glayers": "12-23"}
+]

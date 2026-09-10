@@ -1,0 +1,153 @@
+[
+ {
+  "name": "B0_fp16",
+  "codec": "fp",
+  "bits": 16
+ },
+ {
+  "name": "B1_int4_g128",
+  "codec": "int",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "B1_int3_g128",
+  "codec": "int",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "B1_int2_g64",
+  "codec": "int",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B1b_nf4_g128",
+  "codec": "nf",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "B1b_nf3_g128",
+  "codec": "nf",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "B1b_nf2_g64",
+  "codec": "nf",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B1r_rht_int3_g64",
+  "codec": "rht_int",
+  "bits": 3,
+  "group": 64
+ },
+ {
+  "name": "B3_vq_d8_K256_s2",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "B3_vq_d8_K256_s3",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "B3_vq_d8_K4096_s2",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 2
+ },
+ {
+  "name": "B3_vq_d8_K256_s4",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "B2_tilelowrank_16x16_r2",
+  "codec": "tile_lowrank",
+  "th": 16,
+  "tw": 16,
+  "rank": 2,
+  "factor_bits": 8
+ },
+ {
+  "name": "VC_learned_sep_8x8_a8b8_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "separable",
+  "sep_a": 8,
+  "sep_b": 8,
+  "code_bits": 4
+ },
+ {
+  "name": "VD_q3g128_sparse_0.5pct",
+  "codec": "quant_plus",
+  "bits": 3,
+  "group": 128,
+  "correction": "sparse",
+  "sparsity": 0.005
+ },
+ {
+  "name": "IFS_permmod_d8_R1",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d8_R256",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth0",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 0,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "EQ_vq_d8_K16384_s1",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 16384,
+  "stages": 1
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {"name": "had_cd_a0.001", "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "ambig": 0.001},
+ {"name": "had_cd_a0.01",  "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "ambig": 0.01},
+ {"name": "had_cd_a0.05",  "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "ambig": 0.05},
+ {"name": "had_cd_s1",     "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 1},
+ {"name": "had_cd_s2",     "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 2},
+ {"name": "had_cd_rnd",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "order": "random"},
+ {"name": "had_cd_bwd",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "order": "backward"},
+ {"name": "had_cd_refit",  "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "refit": 2},
+ {"name": "had_cd_damp0.1","coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "adamp": 0.1}
+]

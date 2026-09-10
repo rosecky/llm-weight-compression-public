@@ -1,0 +1,110 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<02:04,  2.32it/s]Loading weights:  59%|#####8    | 171/290 [00:00<00:00, 411.08it/s]Loading weights:  90%|########9 | 260/290 [00:00<00:00, 359.99it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 303.46it/s]
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at <hf-cache> (last modified on Wed Sep  2 10:55:36 2026).
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.57033  (ppl 13.0701)  172s
+fp16 c4  mean NLL 3.04346  (ppl 20.9777)  572s
+  layer  0/23  peak 1798 MiB  opt 0s
+  layer  8/23  peak 1962 MiB  opt 0s
+  layer 16/23  peak 2123 MiB  opt 0s
+  layer 23/23  peak 2263 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 2.92129 c4 3.39860 | KL 0.36373 | 156s
+  layer  0/23  peak 1800 MiB  opt 17s
+  layer  8/23  peak 1967 MiB  opt 154s
+  layer 16/23  peak 2127 MiB  opt 290s
+  layer 23/23  peak 2267 MiB  opt 409s
+layer  bpw 3.2500 | NLL wt2 2.92314 c4 3.41506 | KL 0.36993 | 541s
+  layer  0/23  peak 2140 MiB  opt 86s
+  layer  8/23  peak 2539 MiB  opt 1018s
+  layer 16/23  peak 2936 MiB  opt 2083s
+  layer 23/23  peak 3281 MiB  opt 3140s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<repo>/src\lwc\experiments\valid_eval.py", line 212, in <module>
+    main()
+  File "<repo>/src\lwc\experiments\valid_eval.py", line 195, in main
+    nll = window_nlls(model, W, dev)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/src\lwc\experiments\valid_eval.py", line 81, in window_nlls
+    r = model(x, labels=x)
+        ^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\utils\generic.py", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\models\qwen2\modeling_qwen2.py", line 452, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\utils\generic.py", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\utils\output_capturing.py", line 262, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\models\qwen2\modeling_qwen2.py", line 388, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\modeling_layers.py", line 114, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\models\qwen2\modeling_qwen2.py", line 282, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\models\qwen2\modeling_qwen2.py", line 220, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/.venv\Lib\site-packages\transformers\integrations\sdpa_attention.py", line 158, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<01:32,  3.13it/s]Loading weights:  68%|######7   | 197/290 [00:00<00:00, 600.70it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 522.32it/s]
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at <hf-cache> (last modified on Wed Sep  2 10:55:36 2026).
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.57033  (ppl 13.0701)  171s
+fp16 c4  mean NLL 3.04346  (ppl 20.9777)  585s
+  layer  0/23  peak 2051 MiB  opt 86s
+  layer  8/23  peak 2449 MiB  opt 1086s
+  layer 16/23  peak 2843 MiB  opt 2230s
+  layer 23/23  peak 3189 MiB  opt 3346s
+module bpw 3.2500 | NLL wt2 2.89090 c4 3.37288 | KL 0.33473 | 3590s
+  layer  0/23  peak 2726 MiB  opt 129s
+  layer  8/23  peak 2892 MiB  opt 1463s
+  layer 16/23  peak 3055 MiB  opt 2712s
+  layer 23/23  peak 3197 MiB  opt 3808s
+block  bpw 3.2500 | NLL wt2 2.90027 c4 3.37572 | KL 0.33953 | 4008s

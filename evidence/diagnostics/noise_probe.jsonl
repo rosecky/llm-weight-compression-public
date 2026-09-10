@@ -1,0 +1,5 @@
+{"module": "mlp.gate_proj", "dim": 8960, "believed": 0.6153810434643856, "actual": 1.0646924000492919, "n_low": 2048, "n_high": 16384}
+{"module": "mlp.up_proj", "dim": 8960, "believed": 0.6360403366949652, "actual": 1.0080371809415114, "n_low": 2048, "n_high": 16384}
+{"module": "self_attn.k_proj", "dim": 256, "believed": 0.356057858021298, "actual": 0.41524306207708744, "n_low": 2048, "n_high": 16384}
+{"module": "self_attn.q_proj", "dim": 1536, "believed": 0.6484209325191876, "actual": 0.6667364072461297, "n_low": 2048, "n_high": 16384}
+{"module": "self_attn.v_proj", "dim": 256, "believed": 0.8082564726253219, "actual": 0.9859142290018968, "n_low": 2048, "n_high": 16384}

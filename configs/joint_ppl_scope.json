@@ -1,0 +1,10 @@
+[
+ {"name": "had_cd_layer",     "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "scope": "layer"},
+ {"name": "had_cd_module",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "module", "gdamp": 1.0},
+ {"name": "had_cd_block1",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "block1", "gdamp": 1.0},
+ {"name": "had_cd_block2",    "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "block2", "gdamp": 1.0},
+ {"name": "had_cd_block1_d01","coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "block1", "gdamp": 0.1},
+ {"name": "nat_cd_layer",     "coord": "native",   "comp": "gptq", "bits": 3, "cd": 6, "scope": "layer"},
+ {"name": "nat_cd_block1",    "coord": "native",   "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "block1", "gdamp": 1.0},
+ {"name": "nat_cd_block2",    "coord": "native",   "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "block2", "gdamp": 1.0}
+]

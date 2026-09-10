@@ -1,0 +1,7 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<00:43,  6.57it/s]Loading weights:  88%|########7 | 255/290 [00:00<00:00, 1168.40it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 1032.35it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.57033  169s
+fp16 c4  mean NLL 3.04346  566s
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 5974.97it/s]
+vq20_refine  bpw 2.1161 | NLL wt2 3.28906 c4 3.92619 | KL 0.71161

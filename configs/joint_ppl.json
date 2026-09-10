@@ -1,0 +1,12 @@
+[
+ {"name": "had_gptq",        "coord": "hadamard", "comp": "gptq",  "bits": 3, "cd": 0},
+ {"name": "had_gptq_cd",     "coord": "hadamard", "comp": "gptq",  "bits": 3, "cd": 6},
+ {"name": "nat_gptq",        "coord": "native",   "comp": "gptq",  "bits": 3, "cd": 0},
+ {"name": "nat_gptq_cd",     "coord": "native",   "comp": "gptq",  "bits": 3, "cd": 6},
+ {"name": "had_gptq_cd_a01", "coord": "hadamard", "comp": "gptq",  "bits": 3, "cd": 6, "adamp": 0.01},
+ {"name": "nat_gptq_cd_a01", "coord": "native",   "comp": "gptq",  "bits": 3, "cd": 6, "adamp": 0.01},
+ {"name": "had_naive",       "coord": "hadamard", "comp": "naive", "bits": 3, "cd": 0},
+ {"name": "had_naive_cd",    "coord": "hadamard", "comp": "naive", "bits": 3, "cd": 6},
+ {"name": "nat_naive",       "coord": "native",   "comp": "naive", "bits": 3, "cd": 0},
+ {"name": "nat_naive_cd",    "coord": "native",   "comp": "naive", "bits": 3, "cd": 6}
+]

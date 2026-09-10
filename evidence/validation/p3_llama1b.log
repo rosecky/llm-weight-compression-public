@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights:   1%|          | 1/146 [00:00<01:19,  1.81it/s]Loading weights:  76%|███████▌  | 111/146 [00:00<00:00, 204.75it/s]Loading weights: 100%|██████████| 146/146 [00:00<00:00, 162.05it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (289077 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 141 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.27737  (ppl 9.7510)  14s
+fp16 c4  mean NLL 2.78521  (ppl 16.2032)  44s
+  layer  0/15  peak 4798 MiB  opt 0s
+  layer  8/15  peak 5446 MiB  opt 0s
+  layer 15/15  peak 6006 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 2.76574 c4 3.49985 | KL 0.62934 | 307s
+  layer  0/15  peak 4814 MiB  opt 72s
+  layer  8/15  peak 5462 MiB  opt 656s
+  layer 15/15  peak 6022 MiB  opt 1169s
+layer  bpw 3.2500 | NLL wt2 2.78013 c4 3.51777 | KL 0.65332 | 1500s
+  layer  0/15  peak 5580 MiB  opt 501s
+  layer  8/15  peak 7156 MiB  opt 5679s
+  layer 15/15  peak 8528 MiB  opt 10104s
+module bpw 3.2500 | NLL wt2 2.74318 c4 3.47529 | KL 0.61403 | 10479s

@@ -1,0 +1,15 @@
+[
+  {"name": "b3.uniform.gptq.hadamard", "bits": 3, "alloc": "uniform", "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.col.gptq.hadamard",     "bits": 3, "alloc": "col",     "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.group.gptq.hadamard",   "bits": 3, "alloc": "group",   "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.tile.gptq.hadamard",    "bits": 3, "alloc": "tile",    "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.weight.gptq.hadamard",  "bits": 3, "alloc": "weight",  "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.uniform.gptq.native",   "bits": 3, "alloc": "uniform", "comp": "gptq", "coord": "native"},
+  {"name": "b3.col.gptq.native",       "bits": 3, "alloc": "col",     "comp": "gptq", "coord": "native"},
+  {"name": "b3.group.gptq.native",     "bits": 3, "alloc": "group",   "comp": "gptq", "coord": "native"},
+  {"name": "b3.weight.gptq.native",    "bits": 3, "alloc": "weight",  "comp": "gptq", "coord": "native"},
+  {"name": "b2.uniform.gptq.hadamard", "bits": 2, "alloc": "uniform", "comp": "gptq", "coord": "hadamard"},
+  {"name": "b2.col.gptq.hadamard",     "bits": 2, "alloc": "col",     "comp": "gptq", "coord": "hadamard"},
+  {"name": "b2.group.gptq.hadamard",   "bits": 2, "alloc": "group",   "comp": "gptq", "coord": "hadamard"},
+  {"name": "b2.weight.gptq.hadamard",  "bits": 2, "alloc": "weight",  "comp": "gptq", "coord": "hadamard"}
+]

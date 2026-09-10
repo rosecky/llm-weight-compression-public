@@ -1,0 +1,30 @@
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<02:41,  2.09it/s]Loading weights:  24%|██▍       | 81/338 [00:00<00:01, 183.60it/s]Loading weights:  38%|███▊      | 127/338 [00:01<00:01, 140.77it/s]Loading weights:  47%|████▋     | 159/338 [00:01<00:01, 152.07it/s]Loading weights:  55%|█████▍    | 185/338 [00:01<00:01, 147.07it/s]Loading weights:  61%|██████    | 206/338 [00:01<00:00, 156.07it/s]Loading weights:  67%|██████▋   | 227/338 [00:01<00:00, 159.75it/s]Loading weights:  73%|███████▎  | 247/338 [00:01<00:00, 141.77it/s]Loading weights:  79%|███████▉  | 267/338 [00:01<00:00, 130.92it/s]Loading weights:  84%|████████▍ | 284/338 [00:02<00:00, 138.63it/s]Loading weights:  89%|████████▉ | 300/338 [00:02<00:00, 142.43it/s]Loading weights:  93%|█████████▎| 316/338 [00:02<00:00, 141.59it/s]Loading weights:  98%|█████████▊| 332/338 [00:02<00:00, 143.96it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 140.57it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.22623  (ppl 9.2649)  24s
+fp16 c4  mean NLL 2.74330  (ppl 15.5382)  75s
+  layer  0/27  peak 5703 MiB  opt 0s
+  layer  8/27  peak 6029 MiB  opt 0s
+  layer 16/27  peak 6349 MiB  opt 0s
+  layer 24/27  peak 6669 MiB  opt 0s
+  layer 27/27  peak 6789 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 2.55340 c4 3.05028 | KL 0.35106 | 493s
+  layer  0/27  peak 5712 MiB  opt 69s
+  layer  8/27  peak 6038 MiB  opt 629s
+  layer 16/27  peak 6358 MiB  opt 1183s
+  layer 24/27  peak 6678 MiB  opt 1728s
+  layer 27/27  peak 6798 MiB  opt 1924s
+layer  bpw 3.2500 | NLL wt2 2.55930 c4 3.06778 | KL 0.35868 | 2411s
+  layer  0/27  peak 6514 MiB  opt 205s
+  layer  8/27  peak 7558 MiB  opt 2473s
+  layer 16/27  peak 8598 MiB  opt 4983s
+  layer 24/27  peak 9639 MiB  opt 7426s
+  layer 27/27  peak 10029 MiB  opt 8316s
+module bpw 3.2500 | NLL wt2 2.56162 c4 3.06280 | KL 0.35835 | 8864s
+  layer  0/27  peak 8954 MiB  opt 311s
+  layer  8/27  peak 9278 MiB  opt 3719s
+  layer 16/27  peak 9598 MiB  opt 7147s
+  layer 24/27  peak 9918 MiB  opt 10481s
+  layer 27/27  peak 10038 MiB  opt 11703s
+block  bpw 3.2500 | NLL wt2 2.57089 c4 3.06560 | KL 0.36364 | 12253s

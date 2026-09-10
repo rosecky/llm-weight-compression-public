@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "Which objective should a post-training quantizer optimize? A pre-registered study of module-scope refinement for LLM weight quantization"
+message: "If you use this code or these measurements, please cite this repository."
+type: software
+authors:
+  - family-names: Rosecký
+    given-names: Jan
+date-released: 2026-09-10
+license: MIT
+repository-code: https://github.com/rosecky/llm-weight-compression-public
+keywords:
+  - post-training quantization
+  - GPTQ
+  - coordinate descent
+  - pre-registration
+  - large language models

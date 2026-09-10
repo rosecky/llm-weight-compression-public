@@ -1,0 +1,57 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:38,  3.44it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:01, 199.03it/s]Loading weights:  30%|██▉       | 101/338 [00:00<00:01, 199.63it/s]Loading weights:  37%|███▋      | 125/338 [00:00<00:01, 172.64it/s]Loading weights:  43%|████▎     | 145/338 [00:00<00:01, 178.76it/s]Loading weights:  49%|████▉     | 165/338 [00:01<00:01, 146.23it/s]Loading weights:  58%|█████▊    | 195/338 [00:01<00:00, 175.54it/s]Loading weights:  64%|██████▎   | 215/338 [00:01<00:00, 179.21it/s]Loading weights:  70%|██████▉   | 235/338 [00:01<00:00, 157.01it/s]Loading weights:  75%|███████▌  | 255/338 [00:01<00:00, 160.60it/s]Loading weights:  83%|████████▎ | 279/338 [00:01<00:00, 150.59it/s]Loading weights:  90%|████████▉ | 303/338 [00:01<00:00, 164.09it/s]Loading weights:  97%|█████████▋| 327/338 [00:02<00:00, 152.88it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 163.42it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.22623  (ppl 9.2649)  22s
+fp16 c4  mean NLL 2.74330  (ppl 15.5382)  71s
+  layer  0/27  peak 5703 MiB  opt 0s
+  layer  8/27  peak 6029 MiB  opt 0s
+  layer 16/27  peak 6349 MiB  opt 0s
+  layer 24/27  peak 6669 MiB  opt 0s
+  layer 27/27  peak 6789 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 2.54538 c4 3.05928 | KL 0.34717 | 472s
+  layer  0/27  peak 5712 MiB  opt 64s
+  layer  8/27  peak 6038 MiB  opt 580s
+  layer 16/27  peak 6358 MiB  opt 1098s
+  layer 24/27  peak 6678 MiB  opt 1618s
+  layer 27/27  peak 6798 MiB  opt 1812s
+layer  bpw 3.2500 | NLL wt2 2.54818 c4 3.06171 | KL 0.34825 | 2270s
+  layer  0/27  peak 6514 MiB  opt 220s
+  layer  8/27  peak 7558 MiB  opt 2987s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/lwc/repo/src/lwc/experiments/valid_eval.py", line 218, in <module>
+    main()
+  File "/root/lwc/repo/src/lwc/experiments/valid_eval.py", line 190, in main
+    info = quantize_sequential_joint(model, tok, cfg, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lwc/repo/src/lwc/experiments/joint_ppl.py", line 215, in quantize_sequential_joint
+    Gd = rp.left.rotate_hessian(Gd)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lwc/repo/src/lwc/rotate.py", line 122, in rotate_hessian
+    return self.apply(self.apply(H).T.contiguous())
+                      ^^^^^^^^^^^^^
+  File "/root/lwc/repo/src/lwc/rotate.py", line 81, in apply
+    Y = _block_hadamard(Y * s, self.block)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lwc/repo/src/lwc/rotate.py", line 48, in _block_hadamard
+    Y = hadamard_transform(Y, dim=-1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lwc/repo/src/lwc/codecs/rotation.py", line 45, in hadamard_transform
+    Y = torch.stack([a + b, a - b], dim=2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 308.00 MiB. GPU 0 has a total capacity of 31.37 GiB of which 230.88 MiB is free. Including non-PyTorch memory, this process has 7.63 GiB memory in use. Process 4047936 has 11.78 GiB memory in use. Process 4050136 has 11.71 GiB memory in use. Of the allocated memory 6.22 GiB is allocated by PyTorch, and 760.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:36,  3.49it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:01, 224.02it/s]Loading weights:  34%|███▍      | 115/338 [00:00<00:00, 224.52it/s]Loading weights:  42%|████▏     | 141/338 [00:00<00:01, 193.55it/s]Loading weights:  48%|████▊     | 162/338 [00:00<00:00, 188.47it/s]Loading weights:  54%|█████▍    | 183/338 [00:01<00:00, 161.23it/s]Loading weights:  61%|██████    | 207/338 [00:01<00:00, 172.68it/s]Loading weights:  68%|██████▊   | 230/338 [00:01<00:00, 186.19it/s]Loading weights:  74%|███████▍  | 250/338 [00:01<00:00, 158.41it/s]Loading weights:  79%|███████▉  | 268/338 [00:01<00:00, 157.06it/s]Loading weights:  86%|████████▌ | 291/338 [00:01<00:00, 146.01it/s]Loading weights:  93%|█████████▎| 315/338 [00:01<00:00, 158.94it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 169.95it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.22623  (ppl 9.2649)  23s
+fp16 c4  mean NLL 2.74330  (ppl 15.5382)  72s
+  layer  0/27  peak 6511 MiB  opt 211s

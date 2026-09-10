@@ -1,0 +1,12 @@
+=== Qwen2.5-1.5B layer 13 ===
+gate_proj    out  8960 (0.23 samp/dim) | believed 0.615 | scored: 4k:0.841  8k:0.953  16k:1.065  32k:1.065
+up_proj      out  8960 (0.23 samp/dim) | believed 0.636 | scored: 4k:0.822  8k:0.915  16k:1.008  32k:1.008
+k_proj       out   256 (8.00 samp/dim) | believed 0.356 | scored: 4k:0.406  8k:0.404  16k:0.415  32k:0.432
+q_proj       out  1536 (1.33 samp/dim) | believed 0.651 | scored: 4k:0.662  8k:0.668  16k:0.669  32k:0.672
+v_proj       out   256 (8.00 samp/dim) | believed 0.808 | scored: 4k:0.912  8k:0.959  16k:0.986  32k:0.999
+=== Qwen2.5-0.5B layer 11 (control: the size where the method works) ===
+gate_proj    out  4864 (0.42 samp/dim) | believed 0.671 | scored: 4k:0.835  8k:0.918  16k:1.001  32k:1.001
+up_proj      out  4864 (0.42 samp/dim) | believed 0.694 | scored: 4k:0.748  8k:0.775  16k:0.802  32k:0.802
+k_proj       out   128 (16.00 samp/dim) | believed 0.504 | scored: 4k:0.554  8k:0.575  16k:0.588  32k:0.604
+q_proj       out   896 (2.29 samp/dim) | believed 0.685 | scored: 4k:0.697  8k:0.700  16k:0.703  32k:0.704
+v_proj       out   128 (16.00 samp/dim) | believed 0.457 | scored: 4k:0.925  8k:0.987  16k:1.053  32k:1.092

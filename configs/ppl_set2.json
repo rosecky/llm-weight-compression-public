@@ -1,0 +1,62 @@
+[
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth0",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 0,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "EQ_vq_d8_K16384_s1",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 16384,
+  "stages": 1
+ },
+ {
+  "name": "B1b_nfam4_g128",
+  "codec": "nf",
+  "bits": 4,
+  "group": 128,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam3_g128",
+  "codec": "nf",
+  "bits": 3,
+  "group": 128,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam2_g64",
+  "codec": "nf",
+  "bits": 2,
+  "group": 64,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "IFS_permmod_d8_R256_direct",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "scale_bits": 8,
+  "perm_encoding": "direct"
+ }
+]

@@ -1,0 +1,523 @@
+[
+ {
+  "name": "B0_fp16",
+  "codec": "fp",
+  "bits": 16
+ },
+ {
+  "name": "B1_int8_g128",
+  "codec": "int",
+  "bits": 8,
+  "group": 128
+ },
+ {
+  "name": "B1_int4_g128",
+  "codec": "int",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "B1_int4_g64",
+  "codec": "int",
+  "bits": 4,
+  "group": 64
+ },
+ {
+  "name": "B1_int3_g128",
+  "codec": "int",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "B1_int3_g64",
+  "codec": "int",
+  "bits": 3,
+  "group": 64
+ },
+ {
+  "name": "B1_int3_g32",
+  "codec": "int",
+  "bits": 3,
+  "group": 32
+ },
+ {
+  "name": "B1_int2_g64",
+  "codec": "int",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B1_int2_g32",
+  "codec": "int",
+  "bits": 2,
+  "group": 32
+ },
+ {
+  "name": "B1_int2_g16",
+  "codec": "int",
+  "bits": 2,
+  "group": 16
+ },
+ {
+  "name": "B1r_rht_int4_g128",
+  "codec": "rht_int",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "B1r_rht_int3_g128",
+  "codec": "rht_int",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "B1r_rht_int3_g64",
+  "codec": "rht_int",
+  "bits": 3,
+  "group": 64
+ },
+ {
+  "name": "B1r_rht_int2_g64",
+  "codec": "rht_int",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B1r_rht_int2_g32",
+  "codec": "rht_int",
+  "bits": 2,
+  "group": 32
+ },
+ {
+  "name": "B2_lowrank_r64",
+  "codec": "lowrank",
+  "rank": 64
+ },
+ {
+  "name": "B2_lowrank_r128",
+  "codec": "lowrank",
+  "rank": 128
+ },
+ {
+  "name": "B2_lowrank_r256",
+  "codec": "lowrank",
+  "rank": 256
+ },
+ {
+  "name": "B2_tilelowrank_16x16_r1",
+  "codec": "tile_lowrank",
+  "th": 16,
+  "tw": 16,
+  "rank": 1,
+  "factor_bits": 8
+ },
+ {
+  "name": "B2_tilelowrank_16x16_r2",
+  "codec": "tile_lowrank",
+  "th": 16,
+  "tw": 16,
+  "rank": 2,
+  "factor_bits": 8
+ },
+ {
+  "name": "B3_vq_d8_K256_s2",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "B3_vq_d8_K256_s3",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 3
+ },
+ {
+  "name": "B3_vq_d8_K256_s4",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "B3_vq_d8_K4096_s2",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 2
+ },
+ {
+  "name": "B3_vq_d16_K256_s4",
+  "codec": "vq",
+  "th": 1,
+  "tw": 16,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "B3_vq_d16_K256_s6",
+  "codec": "vq",
+  "th": 1,
+  "tw": 16,
+  "K": 256,
+  "stages": 6
+ },
+ {
+  "name": "B3_vq_2x8_K256_s4",
+  "codec": "vq",
+  "th": 2,
+  "tw": 8,
+  "K": 256,
+  "stages": 4
+ },
+ {
+  "name": "B3_vq_8x8_K4096_s8",
+  "codec": "vq",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 8
+ },
+ {
+  "name": "B3_vq_8x8_K4096_s16",
+  "codec": "vq",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 16
+ },
+ {
+  "name": "B4_vqresid_8x8_K4096_s2_int2g64",
+  "codec": "vq_resid",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 2,
+  "resid_bits": 2,
+  "resid_group": 64
+ },
+ {
+  "name": "B4_vqresid_1x8_K256_s1_int2g64",
+  "codec": "vq_resid",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 1,
+  "resid_bits": 2,
+  "resid_group": 64
+ },
+ {
+  "name": "VA_vqaffine_8x8_K4096_s8",
+  "codec": "vq_affine",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 8,
+  "scale_bits": 8
+ },
+ {
+  "name": "VA_vqaffine_8x8_K4096_s16",
+  "codec": "vq_affine",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 16,
+  "scale_bits": 8
+ },
+ {
+  "name": "VA_vqscale_1x8_K256_s2",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 2,
+  "norm": "scale",
+  "scale_bits": 8
+ },
+ {
+  "name": "VB_vqrank1_8x8_K4096_s4",
+  "codec": "vq_rank1",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 4,
+  "scale_bits": 8
+ },
+ {
+  "name": "VB_vqrank1_16x16_K4096_s8",
+  "codec": "vq_rank1",
+  "th": 16,
+  "tw": 16,
+  "K": 4096,
+  "stages": 8,
+  "scale_bits": 8
+ },
+ {
+  "name": "VC_learned_sep_8x8_a4b4_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "separable",
+  "sep_a": 4,
+  "sep_b": 4,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_sep_8x8_a6b6_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "separable",
+  "sep_a": 6,
+  "sep_b": 6,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_sep_8x8_a8b8_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "separable",
+  "sep_a": 8,
+  "sep_b": 8,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_lin_8x8_k16_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "linear",
+  "code_dim": 16,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_lin_8x8_k32_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "linear",
+  "code_dim": 32,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_mlp_8x8_k16_h128_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "mlp",
+  "code_dim": 16,
+  "hidden": 128,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_mlp_8x8_k32_h256_b4",
+  "codec": "learned",
+  "th": 8,
+  "tw": 8,
+  "arch": "mlp",
+  "code_dim": 32,
+  "hidden": 256,
+  "code_bits": 4
+ },
+ {
+  "name": "VC_learned_mlp_1x8_k4_h64_b4",
+  "codec": "learned",
+  "th": 1,
+  "tw": 8,
+  "arch": "mlp",
+  "code_dim": 4,
+  "hidden": 64,
+  "code_bits": 4
+ },
+ {
+  "name": "VD_q2g64_lowrank_r64",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "lowrank",
+  "rank": 64
+ },
+ {
+  "name": "VD_q2g64_lowrank_r128",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "lowrank",
+  "rank": 128
+ },
+ {
+  "name": "VD_q3g128_lowrank_r64",
+  "codec": "quant_plus",
+  "bits": 3,
+  "group": 128,
+  "correction": "lowrank",
+  "rank": 64
+ },
+ {
+  "name": "VD_q2g64_sparse_0.5pct",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "sparse",
+  "sparsity": 0.005
+ },
+ {
+  "name": "VD_q2g64_sparse_1pct",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "sparse",
+  "sparsity": 0.01
+ },
+ {
+  "name": "VD_q3g128_sparse_0.5pct",
+  "codec": "quant_plus",
+  "bits": 3,
+  "group": 128,
+  "correction": "sparse",
+  "sparsity": 0.005
+ },
+ {
+  "name": "VD_q2g64_vq8x8_K4096_s4",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "vq",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 4,
+  "fit_on": "residual"
+ },
+ {
+  "name": "VD_q2g64_vq1x8_K256_s1",
+  "codec": "quant_plus",
+  "bits": 2,
+  "group": 64,
+  "correction": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 1,
+  "fit_on": "residual"
+ },
+ {
+  "name": "VD_q3g128_vq8x8_K4096_s4",
+  "codec": "quant_plus",
+  "bits": 3,
+  "group": 128,
+  "correction": "vq",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 4,
+  "fit_on": "residual"
+ },
+ {
+  "name": "B1b_nf4_g128",
+  "codec": "nf",
+  "bits": 4,
+  "group": 128
+ },
+ {
+  "name": "B1b_nf3_g128",
+  "codec": "nf",
+  "bits": 3,
+  "group": 128
+ },
+ {
+  "name": "B1b_nf3_g64",
+  "codec": "nf",
+  "bits": 3,
+  "group": 64
+ },
+ {
+  "name": "B1b_nf2_g64",
+  "codec": "nf",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B1b_nf2_g32",
+  "codec": "nf",
+  "bits": 2,
+  "group": 32
+ },
+ {
+  "name": "B1b_nf2_g128",
+  "codec": "nf",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "B1br_rht_nf2_g64",
+  "codec": "rht_int",
+  "bits": 2,
+  "group": 64
+ },
+ {
+  "name": "B3_vq_d8_K4096_s3",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 3
+ },
+ {
+  "name": "B3_vq_2x8_K4096_s2",
+  "codec": "vq",
+  "th": 2,
+  "tw": 8,
+  "K": 4096,
+  "stages": 2
+ },
+ {
+  "name": "B3_vq_8x8_K4096_s12",
+  "codec": "vq",
+  "th": 8,
+  "tw": 8,
+  "K": 4096,
+  "stages": 12
+ },
+ {
+  "name": "B1b_nfam2_g64",
+  "codec": "nf",
+  "bits": 2,
+  "group": 64,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam3_g128",
+  "codec": "nf",
+  "bits": 3,
+  "group": 128,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam3_g64",
+  "codec": "nf",
+  "bits": 3,
+  "group": 64,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam4_g128",
+  "codec": "nf",
+  "bits": 4,
+  "group": 128,
+  "scale_mode": "absmax"
+ },
+ {
+  "name": "B1b_nfam2_g32",
+  "codec": "nf",
+  "bits": 2,
+  "group": 32,
+  "scale_mode": "absmax"
+ }
+]

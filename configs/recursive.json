@@ -1,0 +1,342 @@
+[
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth0",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 0,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth1",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 1,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth3",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 3,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_depth4",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 4,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R1024_K32_depth2",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1024,
+  "n_transforms": 32,
+  "depth": 2,
+  "family": "signperm",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_rec_signperm_d8_R256_K16_d2_sb4",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "signperm",
+  "scale_bits": 4
+ },
+ {
+  "name": "IFS_rec_blockrot_4x4_R256_K16_depth0",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 0,
+  "family": "blockrot",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_blockrot_4x4_R256_K16_depth1",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 1,
+  "family": "blockrot",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_blockrot_4x4_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "blockrot",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_blockrot_4x4_R256_K16_depth3",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 3,
+  "family": "blockrot",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_diag_4x4_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "diag",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_affine_d8_R256_K16_depth2",
+  "codec": "recursive",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "affine",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_rec_lowrankadd_4x4_R256_K16_d2",
+  "codec": "recursive",
+  "th": 4,
+  "tw": 4,
+  "n_roots": 256,
+  "n_transforms": 16,
+  "depth": 2,
+  "family": "lowrank_add",
+  "scale_bits": 8,
+  "refine_iters": 0
+ },
+ {
+  "name": "IFS_permmod_d8_R1",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d8_R16",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 16,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d8_R256",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d8_R1_sb4",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1,
+  "scale_bits": 4
+ },
+ {
+  "name": "IFS_permmod_d16_R1",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 16,
+  "n_roots": 1,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d16_R256",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 16,
+  "n_roots": 256,
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d16_R1_block4",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 16,
+  "n_roots": 1,
+  "scale_bits": 8,
+  "rank_block": 4
+ },
+ {
+  "name": "IFS_permmod_d32_R1_block4",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 32,
+  "n_roots": 1,
+  "scale_bits": 8,
+  "rank_block": 4
+ },
+ {
+  "name": "IFS_permmod_d8_R1_resid2",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1,
+  "scale_bits": 8,
+  "resid_bits": 2,
+  "resid_group": 64
+ },
+ {
+  "name": "EQ_vq_d8_K256_s1",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 1
+ },
+ {
+  "name": "EQ_vq_d8_K4096_s1",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 1
+ },
+ {
+  "name": "EQ_vq_d8_K256_s5",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 256,
+  "stages": 5
+ },
+ {
+  "name": "EQ_vq_d8_K16384_s1",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 16384,
+  "stages": 1
+ },
+ {
+  "name": "EQ_vq_d8_K4096_s3",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 3
+ },
+ {
+  "name": "EQ_vq_d8_K1024_s4",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 1024,
+  "stages": 4
+ },
+ {
+  "name": "EQ_vq_d8_K512_s4",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 512,
+  "stages": 4
+ },
+ {
+  "name": "EQ_vqscale_d8_K4096_s2_sb8",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 2,
+  "norm": "scale",
+  "scale_bits": 8
+ },
+ {
+  "name": "EQ_vqscale_d8_K4096_s3_sb8",
+  "codec": "vq",
+  "th": 1,
+  "tw": 8,
+  "K": 4096,
+  "stages": 3,
+  "norm": "scale",
+  "scale_bits": 8
+ },
+ {
+  "name": "IFS_permmod_d8_R256_direct",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 256,
+  "scale_bits": 8,
+  "perm_encoding": "direct"
+ },
+ {
+  "name": "IFS_permmod_d8_R1_direct",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 8,
+  "n_roots": 1,
+  "scale_bits": 8,
+  "perm_encoding": "direct"
+ },
+ {
+  "name": "IFS_permmod_d16_R256_direct",
+  "codec": "permmod",
+  "th": 1,
+  "tw": 16,
+  "n_roots": 256,
+  "scale_bits": 8,
+  "perm_encoding": "direct"
+ }
+]

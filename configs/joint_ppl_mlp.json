@@ -1,0 +1,3 @@
+[
+ {"name": "had_cd_mod_mlp", "coord": "hadamard", "comp": "gptq", "bits": 3, "cd": 6, "cd_pre": 6, "scope": "module", "gprojs": "gate_proj,up_proj", "gdamp": 1.0}
+]

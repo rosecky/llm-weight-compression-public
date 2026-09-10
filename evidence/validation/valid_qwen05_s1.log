@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<02:27,  1.96it/s]Loading weights:  76%|#######5  | 219/290 [00:00<00:00, 467.86it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 385.30it/s]
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at <hf-cache> (last modified on Wed Sep  2 10:55:36 2026).
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+eval sets: wt2 146 windows, c4 512 windows, kl 64 windows
+fp16 wt2 mean NLL 2.57033  (ppl 13.0701)  170s
+fp16 c4  mean NLL 3.04346  (ppl 20.9777)  571s
+  layer  0/23  peak 1797 MiB  opt 0s
+  layer  8/23  peak 1964 MiB  opt 0s
+  layer 16/23  peak 2124 MiB  opt 0s
+  layer 23/23  peak 2264 MiB  opt 0s
+gptq   bpw 3.2500 | NLL wt2 2.91023 c4 3.41334 | KL 0.36057 | 140s
+  layer  0/23  peak 1800 MiB  opt 18s
+  layer  8/23  peak 1964 MiB  opt 160s
+  layer 16/23  peak 2125 MiB  opt 313s
+  layer 23/23  peak 2264 MiB  opt 443s
+layer  bpw 3.2500 | NLL wt2 2.90791 c4 3.40848 | KL 0.36242 | 581s
+  layer  0/23  peak 2051 MiB  opt 123s
+  layer  8/23  peak 2449 MiB  opt 1148s
+  layer 16/23  peak 2846 MiB  opt 2110s
+  layer 23/23  peak 3191 MiB  opt 2931s
+module bpw 3.2500 | NLL wt2 2.87893 c4 3.37822 | KL 0.33171 | 3167s
+  layer  0/23  peak 2727 MiB  opt 130s
+  layer  8/23  peak 2894 MiB  opt 1403s
+  layer 16/23  peak 3055 MiB  opt 2619s
+  layer 23/23  peak 3196 MiB  opt 3671s
+block  bpw 3.2500 | NLL wt2 2.88556 c4 3.38688 | KL 0.33695 | 3866s

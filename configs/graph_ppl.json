@@ -1,0 +1,9 @@
+[
+  {"name": "b3.contig.gptq.hadamard",     "bits": 3, "order": "contig",     "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.specAcorr.gptq.hadamard",  "bits": 3, "order": "specA_corr", "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.scale.gptq.hadamard",      "bits": 3, "order": "scale",      "comp": "gptq", "coord": "hadamard"},
+  {"name": "b3.contig.gptq.native",       "bits": 3, "order": "contig",     "comp": "gptq", "coord": "native"},
+  {"name": "b3.specAcorr.gptq.native",    "bits": 3, "order": "specA_corr", "comp": "gptq", "coord": "native"},
+  {"name": "b3.scale.gptq.native",        "bits": 3, "order": "scale",      "comp": "gptq", "coord": "native"},
+  {"name": "b3.random.gptq.native",       "bits": 3, "order": "random",     "comp": "gptq", "coord": "native"}
+]

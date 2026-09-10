@@ -1,0 +1,36 @@
+[
+ {
+  "name": "scalar.gptq.native.b2g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "native",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "scalar.gptq.hadamard.b2g128",
+  "rep": "scalar",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "bits": 2,
+  "group": 128
+ },
+ {
+  "name": "vq.gptq.native.d8K256s2",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "native",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ },
+ {
+  "name": "vq.gptq.hadamard.d8K256s2",
+  "rep": "vq",
+  "comp": "gptq",
+  "coord": "hadamard",
+  "d": 8,
+  "K": 256,
+  "stages": 2
+ }
+]
