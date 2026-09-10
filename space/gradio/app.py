@@ -1,4 +1,4 @@
-"""Evidence explorer for honza-rosecky/llm-weight-compression-evidence (Gradio, CPU only).
+"""Evidence explorer for thinletter/llm-weight-compression-evidence (Gradio, CPU only).
 
 Every number is recomputed from the per-window NLLs in the dataset at request time; nothing
 is hard-coded. Paired bootstrap = resample evaluation windows with replacement, 2 000 times.
@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 from huggingface_hub import snapshot_download
 
-DATASET = "honza-rosecky/llm-weight-compression-evidence"
+DATASET = "thinletter/llm-weight-compression-evidence"
 REPO = "https://github.com/rosecky/llm-weight-compression-public"
 ARTICLE = "https://huggingface.co/datasets/%s/blob/main/ARTICLE.md" % DATASET
 

@@ -10,9 +10,9 @@ Jan Rosecký, September 2026. MIT. Companion to the
 ([bge-m3](https://huggingface.co/honza-rosecky/bge-m3-query-clients) and
 [Qwen3-Embedding](https://huggingface.co/honza-rosecky/qwen3-embedding-0.6b-query-clients) query
 clients). Evidence as a dataset:
-[honza-rosecky/llm-weight-compression-evidence](https://huggingface.co/datasets/honza-rosecky/llm-weight-compression-evidence);
+[thinletter/llm-weight-compression-evidence](https://huggingface.co/datasets/thinletter/llm-weight-compression-evidence);
 interactive explorer:
-[honza-rosecky/llm-weight-compression-explorer](https://huggingface.co/spaces/honza-rosecky/llm-weight-compression-explorer).
+[thinletter/llm-weight-compression-explorer](https://huggingface.co/spaces/thinletter/llm-weight-compression-explorer).
 
 ## The result in one table
 

@@ -1,13 +1,7 @@
----
-title: "Which objective should a post-training quantizer optimize? A pre-registered study, with the negatives left in"
-thumbnail: /blog/assets/llm-weight-compression/thumbnail.png
-authors:
-  - user: honza-rosecky
----
 
 # Which objective should a post-training quantizer optimize? A pre-registered study, with the negatives left in
 
-*Code, per-window evidence and the full experiment log: [github.com/rosecky/llm-weight-compression-public](https://github.com/rosecky/llm-weight-compression-public). Evidence as a dataset: [thinletter/llm-weight-compression-evidence](https://huggingface.co/datasets/thinletter/llm-weight-compression-evidence).*
+*Long-form article accompanying this dataset. Code, per-window evidence and the full experiment log: [github.com/rosecky/llm-weight-compression-public](https://github.com/rosecky/llm-weight-compression-public). Evidence as a dataset: [thinletter/llm-weight-compression-evidence](https://huggingface.co/datasets/thinletter/llm-weight-compression-evidence).*
 
 GPTQ and its descendants round each weight matrix to minimise the error at the output of
 *that matrix*. Everyone knows that is a proxy. The question this study asks is narrow and,

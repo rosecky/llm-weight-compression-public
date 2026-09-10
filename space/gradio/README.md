@@ -9,7 +9,7 @@ app_file: app.py
 pinned: false
 license: mit
 datasets:
-  - honza-rosecky/llm-weight-compression-evidence
+  - thinletter/llm-weight-compression-evidence
 ---
 
 Interactive explorer for the per-window evidence behind

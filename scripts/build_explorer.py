@@ -42,7 +42,7 @@ def main():
                     entry["kl"][r["arm"]] = round(r["kl_fp16"], 5)
         files[f] = entry
     bundle = {"files": files, "wt2": wt2_snippets(),
-              "dataset": "honza-rosecky/llm-weight-compression-evidence",
+              "dataset": "thinletter/llm-weight-compression-evidence",
               "repo": "https://github.com/rosecky/llm-weight-compression-public"}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(bundle, open(OUT, "w", encoding="utf-8"), separators=(",", ":"), ensure_ascii=False)
