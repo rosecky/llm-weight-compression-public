@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>llm-weight-compression: evidence explorer</title>
+<style>
+  :root { --fg:#1b1b1b; --muted:#666; --line:#d9d9d9; --bg:#fafafa; --acc:#2a5db0; --neg:#b03a2e; --pos:#2e7d32; }
+  body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width: 1040px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { font-size: 1.45rem; margin: 0 0 6px; }
+  p.lead { color: var(--muted); margin: 0 0 18px; }
+  nav { display:flex; gap:6px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin-bottom:18px; }
+  nav button { border:1px solid var(--line); border-bottom:none; background:#fff; padding:8px 12px; cursor:pointer; border-radius:6px 6px 0 0; font:inherit; }
+  nav button.on { background:var(--acc); color:#fff; border-color:var(--acc); }
+  section { display:none; } section.on { display:block; }
+  table { border-collapse: collapse; width:100%; font-size: 0.92rem; background:#fff; }
+  th, td { border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+  th { background:#f0f0f0; font-weight:600; }
+  td.num, th.num { text-align:right; font-variant-numeric: tabular-nums; }
+  .neg { color: var(--pos); } .posv { color: var(--neg); }
+  .ctl { display:flex; gap:12px; flex-wrap:wrap; align-items:end; margin: 10px 0 14px; }
+  label { display:flex; flex-direction:column; font-size:0.85rem; color:var(--muted); gap:3px; }
+  select, input[type=checkbox] { font:inherit; padding:4px 6px; }
+  .stat { background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin: 8px 0 12px; }
+  canvas { background:#fff; border:1px solid var(--line); border-radius:8px; width:100%; height:180px; display:block; margin-bottom:12px; }
+  .snip { color:var(--muted); font-size:0.85rem; max-width: 520px; }
+  code { background:#eee; padding:1px 4px; border-radius:3px; }
+  footer { color:var(--muted); font-size:0.85rem; margin-top:30px; border-top:1px solid var(--line); padding-top:10px; }
+  .wrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Which objective should a post-training quantizer optimize? — evidence explorer</h1>
+  <p class="lead">Every number on this page is recomputed in your browser from the per-window NLLs in
+    <a id="dslink" href="#">the dataset</a>. Read the <a id="artlink" href="#">article</a>; code and log in
+    <a id="repolink" href="#">the repository</a>. Paired bootstrap over evaluation windows, 2 000 resamples;
+    a negative Δ means the first arm is better.</p>
+  <nav>
+    <button data-tab="headline" class="on">Headline</button>
+    <button data-tab="compare">Compare any two arms</button>
+    <button data-tab="rd">Rate–distortion</button>
+    <button data-tab="twobit">2 bits: the first-token tail</button>
+  </nav>
+
+  <section id="headline" class="on">
+    <p>Frozen protocol, 3.25 bits per weight, full wikitext-2 test (146 windows), one row per calibration draw.
+      “Gap closed” is the fraction of the GPTQ-vs-fp16 loss the module post-pass recovers.</p>
+    <div class="wrap"><table id="headtab"></table></div>
+  </section>
+
+  <section id="compare">
+    <div class="ctl">
+      <label>run file (model / draw / point)<select id="cfile"></select></label>
+      <label>arm A<select id="carmA"></select></label>
+      <label>arm B<select id="carmB"></select></label>
+      <label>evaluation set<select id="cev"><option value="wt2">wt2</option><option value="c4">c4</option></select></label>
+    </div>
+    <div class="stat" id="cstat"></div>
+    <canvas id="chist" width="1000" height="180"></canvas>
+    <div class="wrap"><table id="ctab"></table></div>
+  </section>
+
+  <section id="rd">
+    <p>Qwen2.5-0.5B, calibration draw 0, the same frozen method at four exact bit widths (wikitext-2).</p>
+    <div class="wrap"><table id="rdtab"></table></div>
+  </section>
+
+  <section id="twobit">
+    <p>A 2.12-bpw per-block vector-quantized Qwen2.5-0.5B, plain vs with the post-pass. Without a prefix the
+      worst windows all start with a digit-like token; with a fixed <code>"\n\n"</code> prefix the tail disappears
+      and the post-pass wins on both sets.</p>
+    <div class="ctl">
+      <label>prefix every window with "\n\n"<input type="checkbox" id="tpre"></label>
+      <label>evaluation set<select id="tev"><option value="wt2">wt2</option><option value="c4">c4</option></select></label>
+    </div>
+    <div class="stat" id="tstat"></div>
+    <canvas id="thist" width="1000" height="180"></canvas>
+    <div class="wrap"><table id="ttab"></table></div>
+  </section>
+
+  <footer>Jan Rosecký, 2026. MIT. Experiments run with Claude (Anthropic) as an autonomous research agent under the author's direction.</footer>
+</main>
+<script>
+let D = null;
+const $ = id => document.getElementById(id);
+const fmt = (x, d=4) => (x >= 0 ? "+" : "") + x.toFixed(d);
+const mean = a => a.reduce((s, x) => s + x, 0) / a.length;
+const median = a => { const b = [...a].sort((x, y) => x - y); const m = b.length >> 1; return b.length % 2 ? b[m] : (b[m-1] + b[m]) / 2; };
+
+// deterministic PRNG so the intervals are reproducible across visits
+function rng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function boot(a, b, n = 2000) {
+  const d = a.map((x, i) => x - b[i]); const m = d.length; const r = rng(0); const means = new Float64Array(n);
+  for (let k = 0; k < n; k++) { let s = 0; for (let i = 0; i < m; i++) s += d[(r() * m) | 0]; means[k] = s / m; }
+  means.sort();
+  return { d, mean: mean(d), lo: means[Math.floor(0.025 * n)], hi: means[Math.floor(0.975 * n)] };
+}
+const ci = r => `${fmt(r.mean)} [${fmt(r.lo)}, ${fmt(r.hi)}]`;
+const cls = x => x < 0 ? "neg" : (x > 0 ? "posv" : "");
+
+function hist(canvas, d, color) {
+  const c = canvas.getContext("2d"), W = canvas.width, H = canvas.height; c.clearRect(0, 0, W, H);
+  const lo = Math.min(...d), hi = Math.max(...d), nb = 40, w = (hi - lo) || 1, bins = new Array(nb).fill(0);
+  d.forEach(x => { bins[Math.min(nb - 1, Math.floor((x - lo) / w * nb))]++; });
+  const mx = Math.max(...bins), pad = 28;
+  bins.forEach((v, i) => { const x0 = pad + i / nb * (W - 2 * pad), bw = (W - 2 * pad) / nb - 1, h = v / mx * (H - 40);
+    c.fillStyle = color; c.fillRect(x0, H - 22 - h, bw, h); });
+  const zx = pad + (0 - lo) / w * (W - 2 * pad);
+  if (zx >= pad && zx <= W - pad) { c.strokeStyle = "#000"; c.beginPath(); c.moveTo(zx, 6); c.lineTo(zx, H - 22); c.stroke(); }
+  c.fillStyle = "#666"; c.font = "12px system-ui"; c.fillText(fmt(lo, 2), pad, H - 6); c.fillText(fmt(hi, 2), W - pad - 40, H - 6);
+  c.fillText("Δ NLL per window (bars: windows)", W / 2 - 90, H - 6);
+}
+
+function table(el, cols, rows) {
+  el.innerHTML = "<tr>" + cols.map(c => `<th class="${c.num ? "num" : ""}">${c.h}</th>`).join("") + "</tr>" +
+    rows.map(r => "<tr>" + cols.map(c => `<td class="${c.num ? "num" : ""} ${c.cls ? c.cls(r) : ""}">${c.f(r)}</td>`).join("") + "</tr>").join("");
+}
+
+function headline() {
+  const rows = [];
+  for (const [f, e] of Object.entries(D.files)) {
+    if (!(f.startsWith("valid_") || f.startsWith("p3_llama1b"))) continue;
+    if (!e.arms.module || !e.arms.gptq || !e.arms.module.wt2) continue;
+    const fp = e.arms.fp16.wt2, gq = e.arms.gptq.wt2, mo = e.arms.module.wt2;
+    const r = boot(mo, gq), gap = mean(gq) - mean(fp);
+    rows.push({ model: e.model.split("/").pop(), seed: e.seed, fp: mean(fp), gq: mean(gq), mo: mean(mo), closed: -r.mean / gap * 100, r, ppl: (Math.exp(mean(mo) - mean(gq)) - 1) * 100 });
+  }
+  rows.sort((a, b) => a.model.localeCompare(b.model) || a.seed - b.seed);
+  table($("headtab"), [
+    { h: "model", f: r => r.model }, { h: "draw", f: r => r.seed, num: true },
+    { h: "fp16 NLL", f: r => r.fp.toFixed(4), num: true }, { h: "GPTQ NLL", f: r => r.gq.toFixed(4), num: true },
+    { h: "+ post-pass NLL", f: r => r.mo.toFixed(4), num: true },
+    { h: "gap closed", f: r => fmt(r.closed, 1) + "%", num: true, cls: r => cls(-r.closed) },
+    { h: "module − GPTQ [95% CI]", f: r => ci(r.r), num: true, cls: r => cls(r.r.mean) },
+    { h: "perplexity", f: r => fmt(r.ppl, 1) + "%", num: true, cls: r => cls(r.ppl) },
+  ], rows);
+}
+
+function fillArms(f) {
+  const arms = Object.keys(D.files[f].arms);
+  for (const id of ["carmA", "carmB"]) { const s = $(id); s.innerHTML = arms.map(a => `<option>${a}</option>`).join(""); }
+  $("carmA").value = arms.includes("module") ? "module" : arms[arms.length - 1];
+  $("carmB").value = arms.includes("gptq") ? "gptq" : arms[0];
+}
+
+function compare() {
+  const f = $("cfile").value, A = $("carmA").value, B = $("carmB").value, ev = $("cev").value, e = D.files[f];
+  if (!e.arms[A] || !e.arms[B] || !e.arms[A][ev] || !e.arms[B][ev]) { $("cstat").textContent = "arm not present in this file"; return; }
+  const a = e.arms[A][ev], b = e.arms[B][ev], r = boot(a, b);
+  let gapTxt = "";
+  if (e.arms.fp16 && e.arms.fp16[ev] && B !== "fp16") { const gap = mean(b) - mean(e.arms.fp16[ev]); if (gap > 0) gapTxt = ` · gap closed vs fp16: <b>${fmt(-r.mean / gap * 100, 1)}%</b>`; }
+  const better = r.d.filter(x => x < 0).length, worse = r.d.filter(x => x > 0).length;
+  $("cstat").innerHTML = `<b>${A} − ${B}</b> on ${ev} (${r.d.length} windows): mean <b class="${cls(r.mean)}">${ci(r)}</b>${gapTxt}<br>` +
+    `better on ${better}, worse on ${worse}, median ${fmt(median(r.d))}, max ${fmt(Math.max(...r.d), 3)}, min ${fmt(Math.min(...r.d), 3)}` +
+    (e.bpw[A] ? ` · bpw ${e.bpw[A]}` : "") + (e.kl[A] != null && e.kl[B] != null ? ` · KL to fp16: ${A} ${e.kl[A].toFixed(4)}, ${B} ${e.kl[B].toFixed(4)}` : "");
+  hist($("chist"), r.d, "#4477aa");
+  const idx = r.d.map((x, i) => i).sort((i, j) => r.d[j] - r.d[i]).slice(0, 10);
+  const cols = [{ h: "window", f: i => i, num: true }, { h: B, f: i => b[i].toFixed(3), num: true }, { h: A, f: i => a[i].toFixed(3), num: true },
+    { h: "Δ", f: i => fmt(r.d[i], 3), num: true, cls: i => cls(r.d[i]) }];
+  if (ev === "wt2") cols.push({ h: "first tokens", f: i => `<code>${esc(D.wt2[i].first)}</code>` }, { h: "text", f: i => `<div class="snip">${esc(D.wt2[i].text)}</div>` });
+  $("ctab").insertAdjacentHTML("beforebegin", ""); table($("ctab"), cols, idx);
+}
+const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+function rd() {
+  const rows = [];
+  for (const [f, e] of Object.entries(D.files)) {
+    if (!(f.startsWith("rd_") || f === "valid_qwen05_s0") || !e.arms.module) continue;
+    const fp = e.arms.fp16.wt2, gq = e.arms.gptq.wt2, mo = e.arms.module.wt2, r = boot(mo, gq);
+    rows.push({ bpw: e.bpw.module, g: mean(gq) - mean(fp), m: mean(mo) - mean(fp), closed: -r.mean / (mean(gq) - mean(fp)) * 100, r });
+  }
+  rows.sort((a, b) => a.bpw - b.bpw);
+  table($("rdtab"), [{ h: "bpw", f: r => r.bpw.toFixed(2), num: true }, { h: "GPTQ gap (NLL)", f: r => r.g.toFixed(4), num: true },
+    { h: "post-pass gap", f: r => r.m.toFixed(4), num: true }, { h: "gap closed", f: r => fmt(r.closed, 1) + "%", num: true, cls: r => cls(-r.closed) },
+    { h: "module − GPTQ [95% CI]", f: r => ci(r.r), num: true, cls: r => cls(r.r.mean) }], rows);
+}
+
+function twobit() {
+  const pre = $("tpre").checked, ev = $("tev").value;
+  const a = pre ? D.files.d4_qwen05_vq20_prefix.arms.vq20_refine[ev] : D.files.p4_qwen05_vq20_refine.arms.vq20_refine[ev];
+  const b = pre ? D.files.d4_qwen05_vq20_prefix.arms.vq20_plain[ev] : D.files.p4_qwen05_vq20_plain.arms.vq20_plain[ev];
+  const r = boot(a, b), better = r.d.filter(x => x < 0).length, worse = r.d.filter(x => x > 0).length, tail = r.d.filter(x => x > 1).length;
+  $("tstat").innerHTML = `<b>post-pass − plain, 2.12 bpw VQ, ${ev}, ${pre ? "with \"\\n\\n\" prefix" : "frozen protocol (no prefix)"}</b> (${r.d.length} windows): <b class="${cls(r.mean)}">${ci(r)}</b><br>` +
+    `better on ${better}, worse on ${worse}, windows worse by more than 1 nat: <b>${tail}</b>, max ${fmt(Math.max(...r.d), 3)}`;
+  hist($("thist"), r.d, "#cc6677");
+  const idx = r.d.map((x, i) => i).sort((i, j) => r.d[j] - r.d[i]).slice(0, 10);
+  const cols = [{ h: "window", f: i => i, num: true }, { h: "plain", f: i => b[i].toFixed(3), num: true }, { h: "post-pass", f: i => a[i].toFixed(3), num: true },
+    { h: "Δ", f: i => fmt(r.d[i], 3), num: true, cls: i => cls(r.d[i]) }];
+  if (ev === "wt2") cols.push({ h: "first tokens", f: i => `<code>${esc(D.wt2[i].first)}</code>` }, { h: "text", f: i => `<div class="snip">${esc(D.wt2[i].text)}</div>` });
+  table($("ttab"), cols, idx);
+}
+
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === b.dataset.tab));
+});
+
+fetch("data.json").then(r => r.json()).then(j => {
+  D = j;
+  $("dslink").href = "https://huggingface.co/datasets/" + D.dataset; $("artlink").href = "https://huggingface.co/datasets/" + D.dataset + "/blob/main/ARTICLE.md"; $("repolink").href = D.repo;
+  headline(); rd();
+  const files = Object.keys(D.files).sort(); $("cfile").innerHTML = files.map(f => `<option>${f}</option>`).join(""); $("cfile").value = "valid_qwen05_s0";
+  fillArms("valid_qwen05_s0"); compare();
+  $("cfile").onchange = () => { fillArms($("cfile").value); compare(); };
+  ["carmA", "carmB", "cev"].forEach(id => $(id).onchange = compare);
+  twobit(); $("tpre").onchange = twobit; $("tev").onchange = twobit;
+});
+</script>
+</body>
+</html>
