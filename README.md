@@ -6,7 +6,13 @@ attention/MLP *module* instead of the single linear layer — same bits, same la
 kernel — with every measurement, every pre-registration and every correction in the open.
 
 Jan Rosecký, September 2026. MIT. Companion to the
-[Thinletter](https://thinletter.io) embedding-quantization project.
+[Thinletter](https://thinletter.io) embedding-quantization project
+([bge-m3](https://huggingface.co/honza-rosecky/bge-m3-query-clients) and
+[Qwen3-Embedding](https://huggingface.co/honza-rosecky/qwen3-embedding-0.6b-query-clients) query
+clients). Evidence as a dataset:
+[honza-rosecky/llm-weight-compression-evidence](https://huggingface.co/datasets/honza-rosecky/llm-weight-compression-evidence);
+interactive explorer:
+[honza-rosecky/llm-weight-compression-explorer](https://huggingface.co/spaces/honza-rosecky/llm-weight-compression-explorer).
 
 ## The result in one table
 

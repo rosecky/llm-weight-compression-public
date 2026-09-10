@@ -1,0 +1,7 @@
+gradio>=5.0
+huggingface_hub
+numpy
+pandas
+matplotlib
+datasets
+transformers
